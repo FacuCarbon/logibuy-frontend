@@ -1,43 +1,49 @@
 import Logo from "../assets/images/Logo-logibuy.jpg";
-import { useState } from "react";
-import Searchbar from "./Searchbar";
+
+import { Link } from "react-router";
+
+interface NavbarItem {
+  name: string;
+  path: string;
+}
 
 const Navbar = () => {
-  const menu = ["home", "productos", "grafica", "placa", "pedidos"];
-  const [openSearch, setOpenSearch] = useState(false);
+  const items: NavbarItem[] = [
+    {
+      name: "Productos",
+      path: "/products",
+    },
+    {
+      name: "Grafica",
+      path: "/grafica",
+    },
+    {
+      name: "Placa",
+      path: "/placa",
+    },
+    {
+      name: "Pedidos",
+      path: "/pedidos",
+    },
+  ];
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-2">
-      <figure className="">
+    <nav className="justify-between flex items-center flex-wrap p-2 md:justify-normal">
+      <Link to="/" className="w-[15%]">
         <img src={Logo} alt="Logo" className="h-16 w-16 rounded-full" />
-      </figure>
-      {!openSearch ? (
-        <>
-          <div className="flex items-center justify-between gap-3 w-[50%]">
-            {menu.map((item, index) => (
-              <a
-                href={item}
-                key={index}
-                className="text-zinc-900 hover:text-zinc-700 hover:underline"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+      </Link>
 
-          <div className="w-[5%] flex items-center justify-center">
-            <button
-              aria-label="Icono de buscar"
-              className="cursor-pointer"
-              onClick={() => setOpenSearch(true)}
-            >
-              Q
-            </button>
-          </div>
-        </>
-      ) : (
-        <Searchbar action={() => setOpenSearch(false)} />
-      )}
+      <div className="w-[80%] flex items-center justify-between gap-3 md:w-[75%]">
+        {items.map((item, index) => (
+          <Link
+            to={item.path}
+            key={index}
+            className="text-zinc-900 hover:text-zinc-700 hover:underline"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 };

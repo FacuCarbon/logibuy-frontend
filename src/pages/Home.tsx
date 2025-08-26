@@ -1,8 +1,12 @@
+import { Layout } from "../components/Layout";
+
 type Props = {};
 export const HomePage = ({}: Props) => {
   return (
-    <div>
-      <p>HOME PAGE</p>
-    </div>
+    <Layout>
+      <div>
+        <p>HOME PAGE</p>
+      </div>
+    </Layout>
   );
 };
