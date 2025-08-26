@@ -5,7 +5,7 @@ import {
   type ReactNode,
   useEffect,
 } from "react";
-import type { ProductsList} from "../types/Produtcs";
+import type { ProductsList } from "../types/Produtcs";
 
 interface PropsProviderProducts {
   products: ProductsList | null;
@@ -33,9 +33,9 @@ export const ProviderProducts = ({ children }: { children: ReactNode }) => {
         setLoading(false);
         setProducts(null);
       }
-      
+
       setProducts(data);
-     setTimeout(() => {
+      setTimeout(() => {
         setLoading(false);
       }, 1000);
     } catch (error) {

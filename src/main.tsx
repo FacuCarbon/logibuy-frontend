@@ -1,12 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import { ProviderProducts } from './providers/Products-provider.tsx'
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { HomePage } from "./pages/Home";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ProviderProducts > 
-      <App />
-    </ProviderProducts>
-  </StrictMode>,
-)
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
+  </BrowserRouter>
+);

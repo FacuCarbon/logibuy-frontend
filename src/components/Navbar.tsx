@@ -1,6 +1,6 @@
 import Logo from "../assets/images/Logo-logibuy.jpg";
 import { useState } from "react";
-import Searchbar from "./searchbar";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   const menu = ["home", "productos", "grafica", "placa", "pedidos"];
